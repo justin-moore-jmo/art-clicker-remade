@@ -171,15 +171,14 @@ class ThirdLevel: UIViewController {
             pointsLabel.text = String(currentPoints)
             paintUpgradeCost = (paintUpgradeCost * 2) - (paintUpgradeCost/4)
             paintUpgradeLabel.text = String(paintUpgradeCost)
+            do {
+                playSong2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath2!))
+                playSong2.play()
+            }
+            catch{
+                print("OH NO!")
+            }
         }
-        do {
-            playSong2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath2!))
-            playSong2.play()
-        }
-        catch{
-            print("OH NO!")
-        }
-        
     }
     
     @IBAction func paintbrushUpgradeButtonPressed(_ sender: Any) {
@@ -190,13 +189,13 @@ class ThirdLevel: UIViewController {
             pointsLabel.text = String(currentPoints)
             paintbrushUpgradeCost = (paintbrushUpgradeCost * 2) - (paintbrushUpgradeCost/4)
             paintbrushUpgradeLabel.text = String(paintbrushUpgradeCost)
-        }
-        do {
-            playSong2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath2!))
-            playSong2.play()
-        }
-        catch{
-            print("OH NO!")
+            do {
+                playSong2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath2!))
+                playSong2.play()
+            }
+            catch{
+                print("OH NO!")
+            }
         }
     }
     @IBAction func EaselUpgradeButtonPressed(_ sender: Any) {
@@ -207,13 +206,13 @@ class ThirdLevel: UIViewController {
             pointsLabel.text = String(currentPoints)
             easelUpgradeCost = (easelUpgradeCost * 2) - (easelUpgradeCost/4)
             easelUpgradeLabel.text = String(easelUpgradeCost)
-        }
-        do {
-            playSong2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath2!))
-            playSong2.play()
-        }
-        catch{
-            print("OH NO!")
+            do {
+                playSong2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath2!))
+                playSong2.play()
+            }
+            catch{
+                print("OH NO!")
+            }
         }
     }
     
