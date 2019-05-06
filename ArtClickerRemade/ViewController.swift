@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -141,12 +142,25 @@ class ThirdLevel: UIViewController {
     @IBOutlet weak var createPointsButtonProperties: UIButton!
     @IBOutlet weak var paintUpgradeButtonProperties: UIButton!
     @IBOutlet weak var nextLevelButtonProperties: UIButton!
+    let soundPath = Bundle.main.path(forResource: "click sfx", ofType: "mp3")
+    var playSong = AVAudioPlayer()
+    
+    let soundPath2 = Bundle.main.path(forResource: "upgrade sfx", ofType: "mp3")
+    var playSong2 = AVAudioPlayer()
+    
     
     @IBAction func createPointsButtonPressed(_ sender: Any) {
         currentPoints += artPower
         pointsLabel.text = String(currentPoints)
         if currentPoints >= pointsToProgress{
             nextLevelButtonProperties.alpha = 1
+        }
+        do {
+            playSong = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath!))
+            playSong.play()
+        }
+        catch{
+            print("OH NO!")
         }
     }
     @IBAction func paintUpgradeButtonPressed(_ sender: Any) {
@@ -158,6 +172,14 @@ class ThirdLevel: UIViewController {
             paintUpgradeCost = (paintUpgradeCost * 2) - (paintUpgradeCost/4)
             paintUpgradeLabel.text = String(paintUpgradeCost)
         }
+        do {
+            playSong2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath2!))
+            playSong2.play()
+        }
+        catch{
+            print("OH NO!")
+        }
+        
     }
     
     @IBAction func paintbrushUpgradeButtonPressed(_ sender: Any) {
@@ -169,6 +191,13 @@ class ThirdLevel: UIViewController {
             paintbrushUpgradeCost = (paintbrushUpgradeCost * 2) - (paintbrushUpgradeCost/4)
             paintbrushUpgradeLabel.text = String(paintbrushUpgradeCost)
         }
+        do {
+            playSong2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath2!))
+            playSong2.play()
+        }
+        catch{
+            print("OH NO!")
+        }
     }
     @IBAction func EaselUpgradeButtonPressed(_ sender: Any) {
         if currentPoints >= easelUpgradeCost{
@@ -178,6 +207,13 @@ class ThirdLevel: UIViewController {
             pointsLabel.text = String(currentPoints)
             easelUpgradeCost = (easelUpgradeCost * 2) - (easelUpgradeCost/4)
             easelUpgradeLabel.text = String(easelUpgradeCost)
+        }
+        do {
+            playSong2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath2!))
+            playSong2.play()
+        }
+        catch{
+            print("OH NO!")
         }
     }
     
